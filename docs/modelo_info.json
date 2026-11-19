@@ -1,0 +1,85 @@
+{
+  "rede": "EfficientNetV2-B0",
+  "tamanho_imagem": 224,
+  "racas": 120,
+  "datasets": [
+    "Stanford Dogs",
+    "Tsinghua Dogs"
+  ],
+  "limiar_sugerido": 40,
+  "teste_stanford": {
+    "acerto": 0.8941,
+    "top3": 0.9828
+  },
+  "teste_tsinghua": {
+    "acerto": 0.8931,
+    "top3": 0.9769
+  },
+  "tabela_limiar": [
+    {
+      "limiar": 20,
+      "cobertura": 1.0,
+      "acerto": 0.8941
+    },
+    {
+      "limiar": 25,
+      "cobertura": 1.0,
+      "acerto": 0.8941
+    },
+    {
+      "limiar": 30,
+      "cobertura": 0.9984,
+      "acerto": 0.8955
+    },
+    {
+      "limiar": 35,
+      "cobertura": 0.9934,
+      "acerto": 0.8981
+    },
+    {
+      "limiar": 40,
+      "cobertura": 0.9878,
+      "acerto": 0.9016
+    },
+    {
+      "limiar": 45,
+      "cobertura": 0.9797,
+      "acerto": 0.9056
+    },
+    {
+      "limiar": 50,
+      "cobertura": 0.9631,
+      "acerto": 0.914
+    },
+    {
+      "limiar": 55,
+      "cobertura": 0.9322,
+      "acerto": 0.9259
+    },
+    {
+      "limiar": 60,
+      "cobertura": 0.9069,
+      "acerto": 0.9373
+    },
+    {
+      "limiar": 65,
+      "cobertura": 0.8847,
+      "acerto": 0.9442
+    },
+    {
+      "limiar": 70,
+      "cobertura": 0.8562,
+      "acerto": 0.954
+    },
+    {
+      "limiar": 75,
+      "cobertura": 0.8316,
+      "acerto": 0.9594
+    },
+    {
+      "limiar": 80,
+      "cobertura": 0.7947,
+      "acerto": 0.9678
+    }
+  ]
+}
