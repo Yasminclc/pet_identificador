@@ -1,0 +1,13 @@
+# Backend (gerados em tempo de execução)
+backend/database/banco.db
+backend/static/uploads/*
+!backend/static/uploads/.gitkeep
+backend/.venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# App mobile (o restante está em Front/.gitignore)
+Front/.env
+/novo
