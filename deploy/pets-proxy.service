@@ -1,0 +1,10 @@
+# Repassa as conexões para a API e se encerra após 15 min sem nenhuma conexão.
+# Quando ele para, a API (StopWhenUnneeded) para junto e a RAM é liberada.
+[Unit]
+Description=Pets Identificator - proxy sob demanda (desliga a API apos 15 min sem uso)
+Requires=pets-api.service pets-proxy.socket
+After=pets-api.service pets-proxy.socket
+
+[Service]
+ExecStart=/lib/systemd/systemd-socket-proxyd --exit-idle-time=15min 127.0.0.1:__PORTA_API__
+PrivateTmp=yes

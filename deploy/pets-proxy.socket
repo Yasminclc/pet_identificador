@@ -1,0 +1,10 @@
+# Porta que fica sempre "aberta" pelo systemd, sem nenhum processo ocupando RAM.
+# A primeira conexão liga o pets-proxy.service, que por sua vez liga a API.
+[Unit]
+Description=Pets Identificator - porta de ativacao sob demanda
+
+[Socket]
+ListenStream=127.0.0.1:__PORTA_SOCKET__
+
+[Install]
+WantedBy=sockets.target

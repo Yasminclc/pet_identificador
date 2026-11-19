@@ -1,0 +1,18 @@
+# A API em si (gunicorn). Não é habilitada diretamente: sobe quando o
+# pets-proxy.service precisa dela e para quando ele para.
+[Unit]
+Description=Pets Identificator - API Flask (gunicorn)
+StopWhenUnneeded=yes
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=__BACKEND__
+ExecStart=__BACKEND__/.venv/bin/gunicorn --workers 1 --threads 4 --timeout 60 --bind 127.0.0.1:__PORTA_API__ app:app
+# Só libera o proxy quando a API já responde (modelo carregado), no máximo 60 s
+ExecStartPost=/bin/sh -c 'for i in $$(seq 120); do curl -sf http://127.0.0.1:__PORTA_API__/api/status >/dev/null && exit 0; sleep 0.5; done; exit 1'
+TimeoutStartSec=90
+
+# Proteção dos outros projetos do servidor: se a API passar disso, só ela é afetada
+MemoryMax=400M
+CPUQuota=50%
